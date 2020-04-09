@@ -31,7 +31,7 @@ class MovieControllerSpec extends Specification {
 
     void "test addfilm par post"() {
         given:
-        HttpResponse response = client.toBlocking().exchange(HttpRequest.POST("/movie",new MovieRequest(imdbID:  "aaa")))
+        HttpResponse response = client.toBlocking().exchange(HttpRequest.POST("/movie",new MovieRequest(imdbId:  "aaa")))
 
         expect:
         response.status == HttpStatus.CREATED
