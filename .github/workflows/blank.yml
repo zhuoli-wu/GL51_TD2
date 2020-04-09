@@ -11,16 +11,7 @@ name: CI
 
 # events but only for the master branch
 
-on:
-
-  push:
-
-    branches: [ master ]
-
-  pull_request:
-
-    branches: [ master ]
-
+on: [push, pull_request]
 
 
 jobs:
