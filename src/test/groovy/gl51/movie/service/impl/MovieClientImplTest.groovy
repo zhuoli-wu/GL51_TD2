@@ -13,12 +13,12 @@ import javax.inject.Inject
 class MovieClientImplTest extends Specification{
     @Inject MovieClientImpl client
     @Inject MovieRegistry registry
-    void "injection should work"() {
+    void "injectionShouldWork"() {
         expect:
         registry != null
         client != null
     }
-    void "getMovieDetail should work"(){
+    void "getMovieDetailShouldWork"(){
         when:
         registry.addMovieToFavorites("aaa")
         then:
@@ -27,7 +27,7 @@ class MovieClientImplTest extends Specification{
     }
 
     @MockBean(MovieClientImpl)
-    MovieClient client() {
+    MovieClient mClient() {
         Mock(MovieClient)
     }
 }

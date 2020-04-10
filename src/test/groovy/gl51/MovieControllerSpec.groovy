@@ -13,10 +13,7 @@ import spock.lang.Specification
 import spock.lang.Shared
 import gl51.movie.data.MovieRequest
 import gl51.movie.data.Movie
-import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
-import io.reactivex.Flowable
-import io.reactivex.Maybe
 import io.micronaut.test.annotation.MockBean
 import javax.inject.Inject
 
@@ -29,7 +26,7 @@ class MovieControllerSpec extends Specification {
     @Shared @AutoCleanup @Inject @Client("/")
     RxHttpClient client
 
-    void "test addfilm par post"() {
+    void "testAddFilmParPost"() {
         given:
         HttpResponse response = client.toBlocking().exchange(HttpRequest.POST("/movie",new MovieRequest(imdbId:  "aaa")))
 
@@ -38,7 +35,7 @@ class MovieControllerSpec extends Specification {
     }
 
     @MockBean(MovieClientImpl)
-    MovieClient client(){
+    MovieClient mClient(){
         def mock = Mock(MovieClient)
         mock.getMovieDetail("aaa")>>new Movie(imdbID: "aaa",title: "my movie")
         mock
